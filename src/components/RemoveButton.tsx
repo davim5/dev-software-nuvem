@@ -2,7 +2,11 @@
 import { useRouter } from 'next/navigation';
 import { AiFillDelete } from 'react-icons/ai';
 
-export default function RemoveButton({ id }){
+interface RemoveButtonProps {
+    id: string; 
+}
+
+export default function RemoveButton({ id }:RemoveButtonProps){
     const router = useRouter();
     const removeProduct = async () => {
         const confirmed = confirm("Deseja deletar esse produto?");

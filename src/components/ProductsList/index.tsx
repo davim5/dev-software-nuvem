@@ -2,13 +2,18 @@ import Link from "next/link";
 import RemoveButton from "./../RemoveButton";
 import UpdateButton from "./../UpdateButton";
 import styles from "./styles.module.css";
-interface IProduct {
+export interface IProduct {
   _id: string;
   title: string;
   description: string;
 }
 
-const getProducts:() => Promise<IProduct[]> = async () => {
+interface IProductsResponse {
+  products: IProduct[];
+}
+
+
+const getProducts = async ():Promise<IProductsResponse> => {
   try {
     const res = await fetch("http://localhost:3000/api/products", {
       cache: "no-store"
@@ -22,6 +27,7 @@ const getProducts:() => Promise<IProduct[]> = async () => {
   }
   catch(error) {
     console.log("Erro ao carregar produtos.",error);
+    return { products: [] };
   }
 }
 
