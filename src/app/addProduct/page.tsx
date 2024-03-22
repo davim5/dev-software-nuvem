@@ -18,7 +18,7 @@ export default function AddProduct(){
         }
 
         try {
-            const res = await fetch("https://dev-software-nuvem.vercel.app/api/products", {
+            const res = await fetch("https://dev-software-nuvem.vercel.app", {
                 method:"POST",
                 headers: {
                     "Content-type":"application/json"

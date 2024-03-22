@@ -15,7 +15,7 @@ interface IProductsResponse {
 
 const getProducts = async ():Promise<IProductsResponse> => {
   try {
-    const res = await fetch("https://dev-software-nuvem.vercel.app/api/products", {
+    const res = await fetch("https://dev-software-nuvem.vercel.app", {
       cache: "no-store"
     })
 
@@ -45,7 +45,7 @@ export default async function ProductsList(){
               </div>
               <div>
                   <RemoveButton id={product._id}></RemoveButton>
-                  <Link href={`/products/${product._id}`}>Update</Link>
+                  <Link href={`/updateProduct/${product._id}`}>Update</Link>
               </div>  
             </div>
           ))}
