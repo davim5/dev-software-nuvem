@@ -15,7 +15,7 @@ interface IProductsResponse {
 
 const getProducts = async ():Promise<IProductsResponse> => {
   try {
-    const res = await fetch("http://localhost:3000/api/products", {
+    const res = await fetch("https://dev-software-nuvem.vercel.app/api/products", {
       cache: "no-store"
     })
 
