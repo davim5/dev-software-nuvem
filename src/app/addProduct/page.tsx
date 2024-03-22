@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 
 export default function AddProduct(){
     const [title, setTitle] = useState("");
@@ -9,7 +9,7 @@ export default function AddProduct(){
 
     const router = useRouter();
 
-    const handleSubmit = async (e:Event) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         if(!title || !description) {
