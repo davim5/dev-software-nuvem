@@ -1,9 +1,11 @@
-export default function UpdateProduct(){
+import Link from "next/link";
+
+export default function UpdateProduct({ props }){
     return (
         <form action="">
             <input type="text" placeholder="Nome do produto" />
             <input type="text" placeholder="Descrição do produto" />
-            <button>Update</button>
+            <Link href={`/products/${props.productId}`}>Update</Link>
         </form>    
     )
 }
