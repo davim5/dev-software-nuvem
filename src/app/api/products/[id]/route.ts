@@ -2,7 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 import connectMongoDB from "../../../../../libs/mongodb";
 import Product from "../../../../../models/product";
 
-export async function PUT(request: NextRequest, { params }) {
+interface IParams {
+    params: {
+        id: string;
+    }
+  }
+export async function PUT(request: NextRequest, { params }: IParams) {
     const { id } = params;
     const {
         newTitle: title,
@@ -13,7 +18,7 @@ export async function PUT(request: NextRequest, { params }) {
     return NextResponse.json({ message: "Produto editado"},{ status:200 })
 }
 
-export async function GET(request: NextRequest, { params }) {
+export async function GET(request: NextRequest, { params }: IParams) {
     await connectMongoDB();
     const { id } = params;
     const product = await Product.findOne({_id: id});
