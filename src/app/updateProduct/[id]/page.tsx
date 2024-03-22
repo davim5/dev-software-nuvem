@@ -16,7 +16,7 @@ interface ProductByIdResponse {
 
 const getProductById = async (id: string):Promise<ProductByIdResponse> => {
     try {
-        const res = await fetch(`https://dev-software-nuvem.vercel.app/${id}`, {
+        const res = await fetch(`https://dev-software-nuvem.vercel.app/api/products/${id}`, {
             cache:'no-store'
         });
 
@@ -62,7 +62,7 @@ export default function UpdateProduct({ params }:UpdateProductProps) {
         }
 
         try {
-            const res = await fetch(`https://dev-software-nuvem.vercel.app/${id}`, {
+            const res = await fetch(`https://dev-software-nuvem.vercel.app/api/products/${id}`, {
                 method:"PUT",
                 headers: {
                     "Content-type":"application/json"

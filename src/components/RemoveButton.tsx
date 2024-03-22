@@ -12,7 +12,7 @@ export default function RemoveButton({ id }:RemoveButtonProps){
         const confirmed = confirm("Deseja deletar esse produto?");
 
         if(confirmed) {
-            const res = await fetch(`https://dev-software-nuvem.vercel.app?id=${id}`, {
+            const res = await fetch(`https://dev-software-nuvem.vercel.app/api/products?id=${id}`, {
                 method: "DELETE",
             });
 
